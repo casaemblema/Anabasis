@@ -666,7 +666,8 @@
     <!-- HERO -->
     <section class="hero" id="inicio" aria-label="Inicio">
       <div class="hero-glow"></div>
-      <img class="hero-logo" src="wordmark.png" alt="Anabasis" />
+      <img class="hero-logo" src="wordmark.png" alt="Anabasis" onerror="this.style.display='none';document.getElementById('hero-logo-fallback').style.display='block'" />
+      <div id="hero-logo-fallback" style="display:none;font-family:var(--font-display);font-size:clamp(3rem,8vw,6rem);letter-spacing:0.18em;color:var(--text);margin-bottom:52px;opacity:0;animation:fadeUp 1s cubic-bezier(0.22,1,0.36,1) 0.1s forwards;">ANABASIS</div>
       <p class="hero-tag">Water Engineering</p>
       <h1 class="hero-title">Diseñamos sistemas<br>para mejorar la <em>calidad</em><br>de tu agua.</h1>
       <div class="hero-rule"></div>
@@ -843,7 +844,7 @@
                 title="Formulario Anabasis">
               </iframe>
             </div>
-            <p class="form-note" style="margin-top:14px;">También por correo: <a href="/cdn-cgi/l/email-protection#3d5552515c7d5c535c5f5c4e544e135045"><span class="__cf_email__" data-cfemail="d8b0b7b4b998b9b6b9bab9abb1abf6b5a0">[email&#160;protected]</span></a></p>
+            <p class="form-note" style="margin-top:14px;">También por correo: <a id="email-gform" href="#" style="color:var(--accent);opacity:.8;text-decoration:none;">hola&#64;anabasis.mx</a></p>
           </div>
 
         </div>
@@ -859,7 +860,7 @@
         <span class="footer-brand">Anabasis</span>
         <div class="footer-links">
           <a href="https://www.instagram.com/anabasis.mx" target="_blank" rel="noopener">Instagram</a>
-          <a href="/cdn-cgi/l/email-protection#cfa7a0a3ae8faea1aeadaebca6bce1a2b7"><span class="__cf_email__" data-cfemail="f991969598b99897989b988a908ad79481">[email&#160;protected]</span></a>
+          <a id="email-footer" href="#" style="color:var(--muted-2);text-transform:uppercase;font-size:.78rem;letter-spacing:.08em;text-decoration:none;transition:color .15s;">hola&#64;anabasis.mx</a>
           <a href="https://wa.me/528184613223" target="_blank" rel="noopener">WhatsApp</a>
         </div>
         <span class="footer-copy">© <span id="yr"></span> · Monterrey, NL</span>
@@ -904,6 +905,13 @@
       ].filter(Boolean);
 
       openWA(lines.join('\n'));
+    });
+
+    // Build emails at runtime to avoid Cloudflare obfuscation
+    const em = 'hola' + '@' + 'anabasis.mx';
+    ['email-gform','email-footer'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) { el.href = 'mailto:' + em; el.textContent = em; }
     });
 
     // Scroll reveal
