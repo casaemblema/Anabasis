@@ -197,9 +197,10 @@
       height: auto;
       pointer-events: none;
       z-index: 0;
-      opacity: 0.05;
     }
-    .hero-watermark img { mix-blend-mode: normal; } /* invert basta; opacidad baja la integra al hero */
+    /* invert -> marca blanca/fondo negro; brightness baja la intensidad;
+       screen elimina el negro (el recuadro) y deja solo el grafismo tenue */
+    .hero-watermark img { filter: invert(1) brightness(0.14); mix-blend-mode: screen; }
     .hero-inner { position: relative; z-index: 2; max-width: 920px; }
     .hero .eyebrow {
       color: var(--teal-bright);
@@ -297,6 +298,7 @@
       line-height: 1.08; letter-spacing: -0.015em;
       color: var(--ink); margin-bottom: 18px; max-width: 760px;
     }
+    .sec-head h2 em { font-style: normal; color: var(--teal); }
     .sec-head p {
       font-size: 1.05rem; font-weight: 300; color: var(--muted);
       line-height: 1.65; max-width: 600px;
@@ -544,7 +546,7 @@
       <span class="hero-watermark mark" aria-hidden="true"><img src="logo.png" alt="" onerror="this.style.display='none'"></span>
       <div class="container hero-inner">
         <p class="eyebrow">Mobiliario de alto desempeño · Estaciones de hidratación · Diseño de espacios</p>
-        <h1>Tu proyecto de oficina: diseñado, visualizado y presupuestado <em>en menos de 24 horas.</em></h1>
+        <h1>Tu proyecto de oficina <em>en menos de 24 horas.</em></h1>
         <p class="hero-sub">Un solo contrato. Un solo interlocutor. <b>Certeza de precio y plazo desde el primer contacto</b> — sin coordinar múltiples proveedores.</p>
         <div class="hero-cta">
           <a class="btn-primary js-brief" href="https://wa.me/528184613223" rel="noopener">Agenda tu brief</a>
@@ -577,7 +579,7 @@
       <div class="container">
         <div class="sec-head">
           <p class="eyebrow reveal">Lo que hacemos</p>
-          <h2 class="reveal">Diseñamos tu espacio completo. <br>Un solo contrato, sin sorpresas.</h2>
+          <h2 class="reveal">Tu proyecto de oficina: diseñado, visualizado y presupuestado <em>en menos de 24 horas.</em></h2>
           <p class="reveal d1">Conocemos tu empresa, diseñamos tu espacio y te entregamos <b>renders reales con presupuesto cerrado</b>. Sin cobrarte el diseño. Con certeza de precio y plazo desde el primer contacto.</p>
         </div>
         <div class="sol-grid">
