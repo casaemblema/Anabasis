@@ -188,19 +188,6 @@
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
       pointer-events: none; opacity: 0.6; mix-blend-mode: overlay;
     }
-    .hero-watermark {
-      position: absolute;
-      right: -60px; top: 50%;
-      transform: translateY(-50%);
-      width: min(520px, 60vw);
-      aspect-ratio: 1 / 1;
-      height: auto;
-      pointer-events: none;
-      z-index: 0;
-    }
-    /* invert -> marca blanca/fondo negro; brightness baja la intensidad;
-       screen elimina el negro (el recuadro) y deja solo el grafismo tenue */
-    .hero-watermark img { filter: invert(1) brightness(0.14); mix-blend-mode: screen; }
     .hero-inner { position: relative; z-index: 2; max-width: 920px; }
     .hero .eyebrow {
       color: var(--teal-bright);
@@ -497,7 +484,7 @@
       .equipo-grid { grid-template-columns: 1fr; gap: 36px; }
       .cta-block p { max-width: 100%; }
       .nav-links { display: none; }
-      .hero-watermark { opacity: 0.6; right: -120px; }
+      .hero-cta { gap: 12px; }
     }
     @media (max-width: 560px) {
       .container, .nav-inner { padding: 0 20px; }
@@ -543,7 +530,6 @@
 
     <!-- HERO -->
     <section class="hero" id="inicio" aria-label="Inicio">
-      <span class="hero-watermark mark" aria-hidden="true"><img src="logo.png" alt="" onerror="this.style.display='none'"></span>
       <div class="container hero-inner">
         <p class="eyebrow">Mobiliario de alto desempeño · Estaciones de hidratación · Diseño de espacios</p>
         <h1>Tu proyecto de oficina <em>en menos de 24 horas.</em></h1>
